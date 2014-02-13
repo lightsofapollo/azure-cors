@@ -7,4 +7,4 @@ etc.. on your azure storage account).
 ## Usage
 
   - clone this repo
-  - `node cors.sj`
+  - `node cors.js`
