@@ -20,6 +20,7 @@ function getServiceProperties(callback) {
 
     next(result, function(result) {
       var body = result.response.body;
+      console.log(body);
       callback(result.error, body);
     });
   });
@@ -54,13 +55,14 @@ getServiceProperties(function(err, value) {
   value.StorageServiceProperties.Cors = {
     CorsRule: {
       AllowedOrigins: '*',
-      AllowedMethods: 'GET, HEAD, POST, PUT, DELETE, MERGE',
+      AllowedMethods: 'DELETE, GET, HEAD, MERGE, POST, PUT, OPTIONS',
       MaxAgeInSeconds: 3600,
-      ExposedHeaders: 'ms-*',
-      AllowedHeaders: 'ms-*'
+      ExposedHeaders: '*, ms-*',
+      AllowedHeaders: '*, ms-*'
     }
   };
 
-  updateServiceProperties(value, function() {
+  updateServiceProperties(value, function(err, value) {
+    console.log(err, value);
   });
 });
